@@ -61,18 +61,15 @@
 }
     @IMPORT url("");</style>
 </head>
-<body style="background-color:#282828; background-image: url('resources/images/Travellophilia2ac.jpg');background-size:cover;background-repeat:no-repeat">
+<body>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-    
-      
-    </div>
-
+     </div>
   </div>
 </nav>
 <jsp:scriptlet>FBConnection fbConnection = new FBConnection();</jsp:scriptlet>
-    <div class="container">
+<div class="container">
         <div class="row">
         	<div class="col-md-4">&nbsp;</div>
         	<div class="col-md-4">&nbsp;</div>
@@ -86,29 +83,43 @@
         <div class="row">
         	<div class="col-md-4"></div>
         	<div class="col-md-4">
-        		<form method="post" action="/myapp/register">
-		           
-		             <%--<a href="<%=fbConnection.getFBAuthUrl()%>" class=" loginBtn loginBtn--facebook btn-block">Login</button>--%> 
-		            <%--<a href="traveloptions" class=" loginBtn loginBtn--facebook btn-block">Login</button>--%>
-		            
-		            <div  class="form-group">
-		            <input type="text" name ="username" class="form-control" placeholder="Username">Username</input>
-		            <input type="password" name ="password" class="form-control" placeholder="Password">Password</input>
-		            <input type="submit" name ="action"  value ="Login" class="form-control">Login</input>
-		            <input type="submit" name ="action"  value ="register" class="form-control">Register</input>
-<!-- 		            <a href="register" class="form-control"></a> -->
-		            <div>
-		            
-		        </form>
+        		  <h2>Travelophilia login</h2>
+        		  <form action="login">
+				    <div class="input-group">
+				      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+				      <input id="email" type="text" class="form-control" name="username" placeholder="Username" required>
+				    </div>
+				    <br>
+				    <div class="input-group">
+				      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+				      <input id="password" type="password" class="form-control" name="password" placeholder="Password" required>
+				    </div>
+				    <br>
+				    <label class="radio-inline">
+				      <input type="radio" name="role" value="admin" required>Admin
+				    </label>
+				    <label class="radio-inline">
+				      <input type="radio" name="role" value="travelagent" required>Travel agent
+				    </label>
+				    <label class="radio-inline">
+				      <input type="radio" name="role" value="user" required>Customer
+				    </label>
+				    <div class="input-group">
+				    &nbsp;
+				    </div>
+				    <button type="submit" class="btn btn-block btn-primary">Login</button>
+				    <br/>
+				    <a href="register" class="btn btn-block btn-success">Register</a>
+				  </form>
         	</div>
-        	<div class="col-md-4"></div>
-        </div>
-        
-    </div>
-     <!-- Footer -->   
- <nav class="navbar navbar-inverse navbar-fixed-bottom">
+       	<div class="col-md-4"></div>
+       </div>
+ </div>
+<!-- Footer -->   
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
   <div class="container-fluid">
-    By Zalak,Praneeth and Ankur
+    By Praneeth
   </div>
+</nav>
 </body>
 </html>
