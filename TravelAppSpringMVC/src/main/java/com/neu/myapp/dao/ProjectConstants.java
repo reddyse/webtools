@@ -29,4 +29,9 @@ public interface ProjectConstants {
 	static final String COUNTRY="country";
 	static final String LATITUDE="latitude";
 	static final String LONGITUDE="longitude";
+	
+	//ROLES
+	static final String ADMIN ="admin";
+	static final String USER ="user";
+	static final String TRVEL_AGENT ="travelagent";
 }
