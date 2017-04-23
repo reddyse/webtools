@@ -251,7 +251,7 @@ public class ConnectionDao {
 	public User create(Connection conn,long personID, String username, String emailId, String firstName, String lastName,
 			String profilePictureURI,String name)  {
 		User user = new User();
-		/*try {
+		try {
 			System.out.println("inside DAO");
 			user.setPersonID(personID);
 			user.setFirstName(firstName);
@@ -260,7 +260,7 @@ public class ConnectionDao {
 			user.setEmail(emailId);
 			user.setProfilePictureURI(profilePictureURI);
 			user.setName(name);
-			 email.setUser(user); 
+			/* email.setUser(user); */
 			try {
 				String query = "insert into user(personID,email,firstName,lastName,name,profile_picture,username) values(?,?,?,?,?,?,?)";
 				PreparedStatement pstmt = conn.prepareStatement(query);
@@ -285,7 +285,7 @@ public class ConnectionDao {
 			return user;
 		} catch (Exception e) {
 			
-		}*/
+		}
 		return user;
 	}
 	
