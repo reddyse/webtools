@@ -7,9 +7,18 @@
     <title>Register User</title>
 </head>
 <body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    
+      
+    </div>
+
+  </div>
+</nav>
     <div class="container">
         <h1>Register</h1>
-        <form action="/myapp/profile" method="post" commandName="User">
+        <form action="profile" method="post" commandName="User">
             <div class="form-group">
                 <input type="text" class="form-control" id="username" name="username" path="username" placeholder="User Name">
             </div>
@@ -28,15 +37,22 @@
              <div class="form-group">
                 <input type="text" class="form-control" id="email" name="email" path="email" placeholder="Email">
             </div>
-            </div>
              <div class="form-group">
                 <input type="text" class="form-control" id="profilepic" name="profilePictureURI" path="profilePictureURI" placeholder="Profile Picture">
             </div>
-<!--             <a href="profile" class="btn btn-primary btn-block">Register</a> -->
-<!--             <a href="login" class="btn btn-danger btn-block">Cancel</a> -->
-            <input type="submit" name ="action"  value ="register" class="form-control">Register</input>
-            <input type="submit" name ="action"  value ="cancel" class="form-control">Cancel</input>
+            <input type="submit" name ="action"   value ="Register" class="btn btn-block btn-primary"/>
+            <div class="form-group">
+            </div>
+            <div class="form-group">
+                <a href="login" class="btn btn-block btn-danger">Cancel</a>
+            </div>
         </form>
     </div>
+        <!-- Footer -->   
+ <nav class="navbar navbar-inverse navbar-fixed-bottom">
+  <div class="container-fluid">
+    By Praneeth
+  </div>
+  </nav>
 </body>
 </html>
