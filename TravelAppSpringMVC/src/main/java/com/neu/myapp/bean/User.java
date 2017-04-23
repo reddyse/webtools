@@ -5,17 +5,21 @@ public class User {
 	
 
 	private int personID;
+	private String email;
 	private String firstName;
 	private String lastName;	
 	private String name;
 	private String password;
-	private String email;
-	private String username;
 	private String profilePictureURI;
+	private String username;
 	
 	public User()
 	{
 		
+	}
+	public User(String username)
+	{
+		this.username=username;
 	}
 	public User(String fname,String lname,String email,String name,String password,String profile_pic, String username)
 	{
