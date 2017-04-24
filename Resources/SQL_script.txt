@@ -1,0 +1,193 @@
+CREATE TABLE `amsterdam_accommodation` (
+  `address` text,
+  `category` text,
+  `id` int(11) DEFAULT NULL,
+  `lat` double DEFAULT NULL,
+  `lng` double DEFAULT NULL,
+  `location` text,
+  `name` text,
+  `originalId` text,
+  `polarity` int(11) DEFAULT NULL,
+  `subCategory` text,
+  `details` text,
+  `reviews` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `amsterdam_attraction` (
+  `address` text,
+  `category` text,
+  `id` int(11) DEFAULT NULL,
+  `lat` double DEFAULT NULL,
+  `lng` double DEFAULT NULL,
+  `location` text,
+  `name` text,
+  `originalId` text,
+  `polarity` int(11) DEFAULT NULL,
+  `subCategory` text,
+  `details` text,
+  `reviews` text,
+  `rating` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `amsterdam_poi` (
+  `address` text,
+  `category` text,
+  `id` int(11) DEFAULT NULL,
+  `lat` double DEFAULT NULL,
+  `lng` double DEFAULT NULL,
+  `location` text,
+  `name` text,
+  `originalId` text,
+  `polarity` int(11) DEFAULT NULL,
+  `subCategory` text,
+  `details` text,
+  `reviews` text,
+  `rating` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `barcelona_attraction` (
+  `id` text,
+  `name` text,
+  `address` text,
+  `category` text,
+  `location` text,
+  `lat` text,
+  `lng` text,
+  `details` text,
+  `reviews` text,
+  `expense_type` text,
+  `rating` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `berlin_accommodation` (
+  `address` text,
+  `category` text,
+  `id` int(11) DEFAULT NULL,
+  `lat` double DEFAULT NULL,
+  `lng` double DEFAULT NULL,
+  `location` text,
+  `name` text,
+  `originalId` text,
+  `polarity` int(11) DEFAULT NULL,
+  `subCategory` text,
+  `details` text,
+  `reviews` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `berlin_attraction` (
+  `id` int(11) DEFAULT NULL,
+  `name` text,
+  `address` text,
+  `category` text,
+  `location` text,
+  `lat` double DEFAULT NULL,
+  `lng` double DEFAULT NULL,
+  `details` text,
+  `reviews` text,
+  `expense_type` double DEFAULT NULL,
+  `rating` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `berlin_poi` (
+  `id` int(11) DEFAULT NULL,
+  `name` text,
+  `address` text,
+  `category` text,
+  `location` text,
+  `lat` double DEFAULT NULL,
+  `lng` double DEFAULT NULL,
+  `details` text,
+  `reviews` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `dubai_attraction` (
+  `id` int(11) DEFAULT NULL,
+  `name` text,
+  `address` text,
+  `category` text,
+  `location` text,
+  `lat` double DEFAULT NULL,
+  `lng` double DEFAULT NULL,
+  `details` text,
+  `reviews` text,
+  `expense_type` double DEFAULT NULL,
+  `rating` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `dubai_poi` (
+  `address` text,
+  `category` text,
+  `id` int(11) DEFAULT NULL,
+  `lat` double DEFAULT NULL,
+  `lng` double DEFAULT NULL,
+  `location` text,
+  `name` text,
+  `originalId` text,
+  `polarity` int(11) DEFAULT NULL,
+  `subCategory` text,
+  `details` text,
+  `reviews` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `london_attraction` (
+  `address` text,
+  `category` text,
+  `id` int(11) DEFAULT NULL,
+  `lat` double DEFAULT NULL,
+  `lng` double DEFAULT NULL,
+  `location` text,
+  `name` text,
+  `originalId` text,
+  `polarity` int(11) DEFAULT NULL,
+  `subCategory` text,
+  `details` text,
+  `reviews` text,
+  `expense_type` double DEFAULT NULL,
+  `rating` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `paris_attraction` (
+  `address` text,
+  `category` text,
+  `id` int(11) DEFAULT NULL,
+  `lat` double DEFAULT NULL,
+  `lng` double DEFAULT NULL,
+  `location` text,
+  `name` text,
+  `originalId` text,
+  `polarity` int(11) DEFAULT NULL,
+  `subCategory` text,
+  `details` text,
+  `reviews` text,
+  `expense_type` double DEFAULT NULL,
+  `rating` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `rome_attraction` (
+  `address` text,
+  `category` text,
+  `id` int(11) DEFAULT NULL,
+  `lat` double DEFAULT NULL,
+  `lng` double DEFAULT NULL,
+  `location` text,
+  `name` text,
+  `originalId` text,
+  `polarity` int(11) DEFAULT NULL,
+  `subCategory` text,
+  `details` text,
+  `reviews` text,
+  `expense_type` double DEFAULT NULL,
+  `rating` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `user` (
+  `personID` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(500) DEFAULT NULL,
+  `firstName` varchar(500) DEFAULT NULL,
+  `lastName` varchar(500) DEFAULT NULL,
+  `name` varchar(500) DEFAULT NULL,
+  `password` varchar(500) DEFAULT NULL,
+  `profile_picture` varchar(500) DEFAULT NULL,
+  `username` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`personID`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
