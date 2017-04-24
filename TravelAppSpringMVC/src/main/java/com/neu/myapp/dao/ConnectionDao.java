@@ -253,7 +253,7 @@ public class ConnectionDao {
 		User user = new User();
 		/*try {
 			System.out.println("inside DAO");
-			user.setPersonID(personID);
+			//user.setPersonID(personID);
 			user.setFirstName(firstName);
 			user.setLastName(lastName);
 			user.setName(username);

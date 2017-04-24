@@ -17,6 +17,7 @@
       <property name="password" column="password" type="string"/>
       <property name="email" column="email" type="string"/>
       <property name="username" column="username" type="string"/>
-      <property name="profilePictureURI" column="profile_picture" type="string"/>     
+      <property name="profilePictureURI" column="profile_picture" type="string"/>
+      <property name="isDisabled" column="is_disabled" type="int"/>    
    </class>
 </hibernate-mapping>

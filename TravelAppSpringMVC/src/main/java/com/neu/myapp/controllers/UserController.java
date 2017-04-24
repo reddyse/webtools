@@ -1,10 +1,14 @@
 package com.neu.myapp.controllers;
 
+import java.io.IOException;
+import java.sql.Connection;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -77,6 +81,9 @@ public class UserController {
 		if(username!=null && password!=null && role!=null){
 			if(role.equalsIgnoreCase(ProjectConstants.ADMIN)){
 				if(username.equalsIgnoreCase("a") && password.equalsIgnoreCase("a")){
+					ManageUser mu = new ManageUser();
+					List users = mu.getUsers();
+					model.addAttribute("userslist", users);
 					return "adminhome";
 				}
 			}else if(role.equalsIgnoreCase(ProjectConstants.TRVEL_AGENT)){
@@ -88,5 +95,24 @@ public class UserController {
 			}
 		}
 		return "login";
+	}
+	@RequestMapping(value = "/deleteuser**", method = RequestMethod.POST)
+	public void onDeleteUser(HttpServletRequest request,HttpServletResponse response, Model model) {
+		
+		
+		String userId = request.getParameter("userId");
+		String status = request.getParameter("status");
+		ManageUser mu = new ManageUser();
+		
+		int row = -1;
+		if(userId != null){
+			row = mu.updateUserStatus(userId,status);
+		}
+		try {
+			response.getWriter().write(row > 0?"success":"failed");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 }

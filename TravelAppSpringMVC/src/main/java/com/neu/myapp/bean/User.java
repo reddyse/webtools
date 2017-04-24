@@ -12,6 +12,8 @@ public class User {
 	private String password;
 	private String profilePictureURI;
 	private String username;
+	private int isDisabled;
+	
 	
 	public User()
 	{
@@ -97,4 +99,10 @@ public class User {
 		this.profilePictureURI = profilePictureURI;
 	}
 
+	public int getIsDisabled() {
+		return isDisabled;
+	}
+	public void setIsDisabled(int isDisabled) {
+		this.isDisabled = isDisabled;
+	}
 }
