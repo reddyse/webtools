@@ -19,10 +19,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
-  <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+ <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
   <script>
-  
+  $(document).ready(function() {
+	    $('#example').DataTable();
+	} );
   </script>
   <style>
 #autobox {
@@ -60,15 +62,13 @@
 		     js.src = "http://connect.facebook.net/en_US/all.js";
 		     d.getElementsByTagName('head')[0].appendChild(js);
 		   }(document));
-		  $(document).ready(function() {
-			    $('#example').DataTable();
-			} );
+		  
 		  function deleteUser(UserId,Status){
 				alert('Delete user- '+UserId);
 		    	 jQuery.ajax({
 					  type: "POST",
 					  dataType: "html",
-					  url: "deleteuser",
+					  url: "deleteuser?${_csrf.parameterName}=${_csrf.token}",
 					  data: "userId="+UserId+"&status="+Status,
 					  success: function(msg){
 							if(msg === "success"){
