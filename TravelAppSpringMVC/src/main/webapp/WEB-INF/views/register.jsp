@@ -38,7 +38,7 @@
                 <input type="text" class="form-control" id="email" name="email" path="email" placeholder="Email">
             </div>
              <div class="form-group">
-                <input type="text" class="form-control" id="profilepic" name="profilePictureURI" path="profilePictureURI" placeholder="Profile Picture">
+                <input type="file" class="form-control" id="profilepic" name="profilePictureURI" path="profilePictureURI" placeholder="Profile Picture">
             </div>
             <input type="submit" name ="action"   value ="Register" class="btn btn-block btn-primary"/>
             <div class="form-group">

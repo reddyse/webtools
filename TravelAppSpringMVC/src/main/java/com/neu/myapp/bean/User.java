@@ -10,7 +10,7 @@ public class User {
 	private String lastName;	
 	private String name;
 	private String password;
-	private String profilePictureURI;
+	private  byte[] profilePictureURI;
 	private String username;
 	private int isDisabled;
 	
@@ -23,7 +23,7 @@ public class User {
 	{
 		this.username=username;
 	}
-	public User(String fname,String lname,String email,String name,String password,String profile_pic, String username)
+	public User(String fname,String lname,String email,String name,String password,byte[] profile_pic, String username)
 	{
 		this.firstName=fname;
 		this.lastName=lname;
@@ -91,11 +91,11 @@ public class User {
 		this.username = username;
 	}
 
-	public String getProfilePictureURI() {
+	public  byte[] getProfilePictureURI() {
 		return profilePictureURI;
 	}
 
-	public void setProfilePictureURI(String profilePictureURI) {
+	public void setProfilePictureURI( byte[] profilePictureURI) {
 		this.profilePictureURI = profilePictureURI;
 	}
 
