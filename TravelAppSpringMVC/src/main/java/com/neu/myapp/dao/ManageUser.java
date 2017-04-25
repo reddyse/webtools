@@ -30,62 +30,6 @@ public class ManageUser {
 		return session;
 	}
 
-	/* Method to CREATE an employee in the database */
-	public Integer addEmployee(String fname, String lname, String email, String name, String password,
-			String profile_pic, String username) {
-		Session session = getConnection();
-		Transaction tx = null;
-		Integer userID = null;
-		try {
-			tx = session.beginTransaction();
-			User user = new User(fname, lname, email, name, password, profile_pic, username);
-			userID = (Integer) session.save(user);
-			tx.commit();
-		} catch (HibernateException e) {
-			if (tx != null)
-				tx.rollback();
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
-		return userID;
-	}
-
-	public Map<Integer, List<User>> selectUser(String username) {
-		Map map = new HashMap<Integer, List<User>>();
-		List<User> travelPlans = new ArrayList<User>();
-		User user = new User();
-
-		Session session = getConnection();
-		Transaction tx = null;
-		Integer userID = null;
-		List<User> results = new ArrayList<User>();
-		int ind = 0;
-		ResultSet res = null;
-		try {
-			tx = session.beginTransaction();
-			// User user = new User(username);
-			String hql = "from User where username = :username";
-			Query query = session.createQuery(hql);
-			query.setParameter("username", username);
-			results = query.list();
-			map.put(ind++, results);
-			tx.commit();
-		} catch (HibernateException e) {
-			if (tx != null)
-				tx.rollback();
-			e.printStackTrace();
-		} catch (Exception e) {
-			if (tx != null)
-				tx.rollback();
-			e.printStackTrace();
-		} finally {
-		}
-		session.close();
-
-		return map;
-	}
-
 	public List<User> getUsers() {
 		List users = new ArrayList<User>();
 		User user = new User();
@@ -138,4 +82,63 @@ public class ManageUser {
 		session.close();
 		return result;
 	}
+   
+	      /* Method to CREATE an employee in the database */
+	      public Integer addEmployee(String fname, String lname, String email, String name, String password, byte[] profile_pic, String username){
+	         Session session = getConnection();
+	         Transaction tx = null;
+	         Integer userID = null;
+	         try{
+	            tx = session.beginTransaction();
+	            User user = new User(fname, lname, email, name, password,profile_pic, username);
+	            userID = (Integer) session.save(user); 
+	            tx.commit();
+	         }catch (HibernateException e) {
+	            if (tx!=null) tx.rollback();
+	            e.printStackTrace(); 
+	         }finally {
+	            session.close(); 
+	         }
+	         return userID;
+	      }
+	      
+	      public Map<Integer, List<User>> selectUser(String username )
+	      {
+	    	  Map map = new HashMap<Integer, List<User>>();
+	    	  List<User> travelPlans = new ArrayList<User>();
+	    	  User user = new User();
+	
+		         Session session = getConnection();
+		         Transaction tx = null;
+		         Integer userID = null;
+		         List<User> results = new ArrayList<User>();
+		         int ind=0;
+		         ResultSet res=null;
+		         try{
+		            tx = session.beginTransaction();
+		            //User user = new User(username);
+		            String hql = "from User where username = :username";
+		            Query query = session.createQuery(hql);
+		            query.setParameter("username",username);
+		            query.setMaxResults(1);
+		            results = query.list();
+		            map.put(ind++, results);
+		            tx.commit();
+		         }
+		         catch (HibernateException e) 
+		         {
+		            if (tx!=null) tx.rollback();
+		            e.printStackTrace(); 
+		         }
+		         catch(Exception e)
+		         {
+		        	 if (tx!=null) tx.rollback();
+			            e.printStackTrace();
+		         }
+		         finally {
+		         }
+		            session.close(); 
+		         
+		         return map;
+		      }
 }
