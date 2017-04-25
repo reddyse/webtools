@@ -2,6 +2,7 @@ package com.neu.myapp.controllers;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.Base64;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -55,13 +56,16 @@ public class UserController {
 		ManageUser mu = new ManageUser();
 		//List<User> results = null;
 		Map<Integer,List<User>> results = null;
+		
 		mu.addEmployee(user.getFirstName(), user.getLastName(), user.getEmail(), user.getName(), user.getPassword(), user.getProfilePictureURI(), user.getUsername());			
 		results = mu.selectUser(user.getUsername());
 		logger.info("select query to fetch user", locale);
 		System.out.println("username : "+results.size());
+		String imageBase64 = new String(Base64.getEncoder().encode(user.getProfilePictureURI()));
 		
 		//Map<Integer,List<User>> userList = results;
 		model.addAttribute("User",results.get(0));
+		model.addAttribute("User_Image", imageBase64);
 		
 		//model.addAttribute("results",results);
 		
