@@ -19,12 +19,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
-  <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
   <script>
-  $(document).ready(function() {
-	    $('#example').DataTable();
-	} );
+  
   </script>
   <style>
 #autobox {
@@ -62,7 +60,9 @@
 		     js.src = "http://connect.facebook.net/en_US/all.js";
 		     d.getElementsByTagName('head')[0].appendChild(js);
 		   }(document));
-		  
+		  $(document).ready(function() {
+			    $('#example').DataTable();
+			} );
 		  function deleteUser(UserId,Status){
 				alert('Delete user- '+UserId);
 		    	 jQuery.ajax({
@@ -149,8 +149,11 @@
                 <th>Last Name</th>
                 <th>Email Address</th>
                 <th>username</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
+        
         <tbody>
         	<c:forEach var="user" items="${userslist}">
 				<tr id='${user.personID }'>
@@ -170,6 +173,7 @@
 				</tr>
 			</c:forEach>
         </tbody>
+        
     </table>
 			  </div><!-- /.col-lg-6 -->
 			</div><!-- /.row -->
