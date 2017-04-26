@@ -18,7 +18,7 @@
 </nav>
     <div class="container">
         <h1>Register</h1>
-        <form action="profile" method="post" commandName="User">
+        <form action="profile?${_csrf.parameterName}=${_csrf.token}" method="post" commandName="User">
             <div class="form-group">
                 <input type="text" class="form-control" id="username" name="username" path="username" placeholder="User Name">
             </div>

@@ -84,34 +84,33 @@
         	<div class="col-md-4"></div>
         	<div class="col-md-4">
         		  <h2>Travelophilia login</h2>
-        		  <form action="login" method="GET">
-				    <div class="input-group">
-				      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-				      <input id="email" type="text" class="form-control" name="username" placeholder="Username" required>
-				    </div>
-				    <br>
-				    <div class="input-group">
-				      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-				      <input id="password" type="password" class="form-control" name="password" placeholder="Password" required>
-				    </div>
-				    <br>
-				    <label class="radio-inline">
-				      <input type="radio" name="role" value="admin" required>Admin
-				    </label>
-				    <label class="radio-inline">
-				      <input type="radio" name="role" value="travelagent" required>Travel agent
-				    </label>
-				    <label class="radio-inline">
-				      <input type="radio" name="role" value="user" required>Customer
-				    </label>
-				    <div class="input-group">
-				    &nbsp;
-				    </div>
-				    <button type="submit" class="btn btn-block btn-primary">Login</button>
-				    <br/>
-				    <a href="register" class="btn btn-block btn-success">Register</a>
-				  </form>
-        	</div>
+				<form action="login?${_csrf.parameterName}=${_csrf.token}"
+					method="post">
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-user"></i></span> <input id="email"
+							type="text" class="form-control" name="username"
+							placeholder="Username" required>
+					</div>
+					<br>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-lock"></i></span> <input id="password"
+							type="password" class="form-control" name="password"
+							placeholder="Password" required>
+					</div>
+					<br> <label class="radio-inline"> <input type="radio"
+						name="role" value="admin" required>Admin
+					</label> <label class="radio-inline"> <input type="radio"
+						name="role" value="travelagent" required>Travel agent
+					</label> <label class="radio-inline"> <input type="radio"
+						name="role" value="user" required>Customer
+					</label>
+					<div class="input-group">&nbsp;</div>
+					<button type="submit" class="btn btn-block btn-primary">Login</button>
+					<br /> <a href="register" class="btn btn-block btn-success">Register</a>
+				</form>
+			</div>
        	<div class="col-md-4"></div>
        </div>
  </div>
