@@ -84,13 +84,13 @@ public class ManageUser {
 	}
    
 	      /* Method to CREATE an employee in the database */
-	      public Integer addEmployee(String fname, String lname, String email, String name, String password, byte[] profile_pic, String username){
+	      public Integer addEmployee(String fname, String lname, String email, String name, String password, byte[] profile_pic, String username, int isDisabled, String role){
 	         Session session = getConnection();
 	         Transaction tx = null;
 	         Integer userID = null;
 	         try{
 	            tx = session.beginTransaction();
-	            User user = new User(fname, lname, email, name, password,profile_pic, username);
+	            User user = new User(fname, lname, email, name, password,profile_pic, username, isDisabled,role);
 	            userID = (Integer) session.save(user); 
 	            tx.commit();
 	         }catch (HibernateException e) {
@@ -141,4 +141,6 @@ public class ManageUser {
 		         
 		         return map;
 		      }
+
+
 }

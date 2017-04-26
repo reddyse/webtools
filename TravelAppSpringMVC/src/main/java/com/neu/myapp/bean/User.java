@@ -2,7 +2,6 @@ package com.neu.myapp.bean;
 
 
 public class User {
-	
 
 	private int personID;
 	private String email;
@@ -13,17 +12,24 @@ public class User {
 	private  byte[] profilePictureURI;
 	private String username;
 	private int isDisabled;
+	private String role;
 	
 	
 	public User()
 	{
 		
 	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 	public User(String username)
 	{
 		this.username=username;
 	}
-	public User(String fname,String lname,String email,String name,String password,byte[] profile_pic, String username)
+	public User(String fname,String lname,String email,String name,String password,byte[] profile_pic, String username, int isDisabled, String role)
 	{
 		this.firstName=fname;
 		this.lastName=lname;
@@ -32,7 +38,8 @@ public class User {
 		this.password=password;
 		this.profilePictureURI=profile_pic;
 		this.username=username;
-	
+		this.isDisabled = isDisabled;
+		this.role=role;
 	}
 
 	public int getPersonID() {
@@ -95,7 +102,7 @@ public class User {
 		return profilePictureURI;
 	}
 
-	public void setProfilePictureURI( byte[] profilePictureURI) {
+	public void setProfilePictureURI(byte[] profilePictureURI) {
 		this.profilePictureURI = profilePictureURI;
 	}
 

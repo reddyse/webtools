@@ -20,6 +20,7 @@
       <property name="username" column="username" type="string"/> 
       <property name="profilePictureURI" type="binary">
             <column name="profile_picture" not-null="true" />
-      </property>    
+      </property>
+      <property name="role" column="role" type="string"/>     
    </class>
 </hibernate-mapping>

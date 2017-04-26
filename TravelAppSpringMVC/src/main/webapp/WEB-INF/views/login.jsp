@@ -84,7 +84,7 @@
         	<div class="col-md-4"></div>
         	<div class="col-md-4">
         		  <h2>Travelophilia login</h2>
-        		  <form action="login">
+        		  <form action="login" method="GET">
 				    <div class="input-group">
 				      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 				      <input id="email" type="text" class="form-control" name="username" placeholder="Username" required>

@@ -1,16 +1,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="com.neu.myapp.fbsocial.FBConnection"%>
 <%@ page session="false"%>
-<%
-    response.setHeader("Cache-Control", "no-cache"); //HTTP 1.1
-    response.setHeader("Pragma", "no-cache"); //HTTP 1.0
-    response.setDateHeader("Expires", 0); //prevents caching at the proxy server
-%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Bootstrap Case</title>
   <meta charset="utf-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
@@ -94,6 +90,7 @@
 		    	 
 		         }
 	</script>
+	
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -116,7 +113,7 @@
         <!--  <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
 				<li><a href="<%=fbConnection.getFBAuthUrl()%>"><img class="img-circle" src="${profile}" height="27"></a></li>
 				<li><a href="<%=fbConnection.getFBAuthUrl()%>">${name}</a></li>
-				<li><a href="logout.htm" onclick="FB.logout(function(response){});" >Logout</a></li>
+				<li><a href="logout" onclick="noBack();" >Logout</a></li>
         </li>
   </ul>
     </div>
