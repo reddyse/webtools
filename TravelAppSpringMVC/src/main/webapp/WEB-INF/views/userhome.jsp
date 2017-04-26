@@ -93,7 +93,7 @@
         <!--  <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
 				<li><a href="<%=fbConnection.getFBAuthUrl()%>"><img class="img-circle" src="${profile}" height="27"></a></li>
 				<li><a href="<%=fbConnection.getFBAuthUrl()%>">${name}</a></li>
-				<li><a href="logout.htm" onclick="FB.logout(function(response){});" >Logout</a></li>
+				<li><a href="logout" >Logout</a></li>
         </li>
   </ul>
     </div>
