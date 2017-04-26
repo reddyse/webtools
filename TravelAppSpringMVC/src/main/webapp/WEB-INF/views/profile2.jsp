@@ -51,7 +51,7 @@
 </td><td>
 <div class="form-group">
 <h3>
-<img src="${imageBase64}" width="50" height="50" />
+<%-- <img src="${imageBase64}" width="50" height="50" />--%>
 </h3>
 </div>
 </td></tr></table>
