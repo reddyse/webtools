@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.neu.myapp.bean.Amsterdam_Info;
 import com.neu.myapp.bean.TravelPlan;
 import com.neu.myapp.bean.User;
 import com.neu.myapp.dao.ManageUser;
@@ -53,8 +54,7 @@ public class UserController {
 		logger.info("Register", locale);
 		return new ModelAndView("register","User", new User());
 	}
-	
-	@RequestMapping(value = "/profile", method = RequestMethod.POST)
+	@RequestMapping(value = "/profile**", method = RequestMethod.POST)
 	public String profile(Locale locale, Model model, User user) {
 		ManageUser mu = new ManageUser();
 		//List<User> results = null;
@@ -63,11 +63,11 @@ public class UserController {
 		results = mu.selectUser(user.getUsername());
 		logger.info("select query to fetch user", locale);
 		System.out.println("username : "+results.size());
-		String imageBase64 = new String(Base64.getEncoder().encode(user.getProfilePictureURI()));
+		//String imageBase64 = new String(Base64.getEncoder().encode(user.getProfilePictureURI()));
 		
 		//Map<Integer,List<User>> userList = results;
 		model.addAttribute("User",results.get(0));
-		model.addAttribute("User_Image", imageBase64);
+		//model.addAttribute("User_Image", imageBase64);
 		
 		//model.addAttribute("results",results);
 		
@@ -78,6 +78,7 @@ public class UserController {
 	public String logout(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		session.invalidate();
+		session = null;
 		return "login";
 	}
 	
@@ -88,7 +89,7 @@ public class UserController {
 		return "userhome";
 	}
 	
-	@RequestMapping(value = {"/login"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/login**"}, method = RequestMethod.POST)
 	public String login(Locale locale, Model model,HttpServletRequest req) {
 		logger.info("Login", locale);
 		String username = req.getParameter("username");
@@ -98,8 +99,6 @@ public class UserController {
 		
 		if(username!=null && password!=null && role!=null)
 		{
-			
-			
 			ManageUser mu = new ManageUser();
 			Map<Integer,List<User>> results = null;
 			results = mu.selectUser(username);
@@ -125,33 +124,20 @@ public class UserController {
 			}
 			else if(role.equalsIgnoreCase(ProjectConstants.TRVEL_AGENT))
 			{
-				if(username.equalsIgnoreCase(results.get(0).get(0).getUsername()) && password.equalsIgnoreCase(results.get(0).get(0).getPassword()) && role.equalsIgnoreCase(results.get(0).get(0).getRole()))
+				/*if(username.equalsIgnoreCase(results.get(0).get(0).getUsername()) && password.equalsIgnoreCase(results.get(0).get(0).getPassword()) && role.equalsIgnoreCase(results.get(0).get(0).getRole()))
 				{
 					session.setAttribute("UserName", username);
 					return "travelhome";
-				}
+				}*/
+				List <Amsterdam_Info>users = mu.getTravelinfo();
+				model.addAttribute("userslist", users);
+				return "travelhome";
 			}
-				
-				/*if(username.equalsIgnoreCase("a") && password.equalsIgnoreCase("a")){
-					ManageUser mu = new ManageUser();
-					List users = mu.getUsers();
-					model.addAttribute("userslist", users);
-					return "adminhome";
-				}
-			}
-			else if(role.equalsIgnoreCase(ProjectConstants.TRVEL_AGENT)){
-				if(username.equalsIgnoreCase("t") && password.equalsIgnoreCase("t"))
-					return "travelhome";
-			}
-			else{
-				if(username.equalsIgnoreCase("u") && password.equalsIgnoreCase("u"))
-					return "userhome";
-			}*/
 		}
 		return "login";
 	}
 	
-	@RequestMapping(value = "/	**", method = RequestMethod.POST)
+	@RequestMapping(value = "/deleteuser**", method = RequestMethod.POST)
 	public void onDeleteUser(HttpServletRequest request,HttpServletResponse response, Model model) {
 		HttpSession session = request.getSession();; 
 		
